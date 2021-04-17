@@ -18,6 +18,6 @@ with:
 uses: nforgeio-actions@master
 with:
   path: ${{ github.workspace }}/build.log
-  groupTitle: build.log
+  group-title: build.log
 ```
 
