@@ -42,8 +42,8 @@ runs:
       
       # Perform the operation
       
-      $path       = ${{ inputs.path }}
-      $groupTitle = ${{ inputs.group-title }}
+      $path       = "${{ inputs.path }}"
+      $groupTitle = "${{ inputs.group-title }}"
       
       Write-ActionOutputFile $path $groupTitle
       
