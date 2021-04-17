@@ -18,6 +18,5 @@ with:
 uses: nforgeio-actions/neon-log-file@master
 with:
   path: "myfile.txt"
-  group-title: "build.log"
+  group: "build.log"
 ```
-
