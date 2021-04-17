@@ -9,7 +9,7 @@ inputs:
     description: "The text file path"
     required: true
   group-title:
-    description: "optionally specifies the group file when nesting within an expandable group"
+    description: "optionally specifies the group name when nesting within an expandable group"
     required: false
     default:
 runs:
