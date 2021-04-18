@@ -3,15 +3,19 @@
 # within an expandable group.
 
 name: neon-log-file
-description: Appends a text file to the GitHub action log, optionally nesting the text within an expandable group
+description: "Appends a text file to the GitHub action log, optionally nesting the text within an expandable group"
 inputs:
   path:
     description: "The text file path"
     required: true
   group:
-    description: "optionally specifies the group name when nesting within an expandable group"
+    description: "Optionally specifies the group name when nesting within an expandable group"
     required: false
     default:
+  color-mode: 
+    description: "Optionally specifies the log colorization mode (one of: '', 'none', or 'build-log)"
+    required: false
+    default: none
 runs:
   using: composite
   steps:
@@ -42,13 +46,14 @@ runs:
       
       # Perform the operation
       
-      $path  = "${{ inputs.path }}"
-      $group = "${{ inputs.group }}"
+      $path      = "${{ inputs.path }}"
+      $group     = "${{ inputs.group }}"
+      $colorMode = "${{ inputs.color-mode }}"
       
       if ([System.String]::IsNullOrEmpty($group))
       {
           $group = "LOG-CAPTURE"
       }
       
-      Write-ActionOutputFile $path $group
+      Write-ActionOutputFile $path $group $colorMode
       
