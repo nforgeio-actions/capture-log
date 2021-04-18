@@ -8,7 +8,7 @@ inputs:
   path:
     description: "The text file path"
     required: true
-  group-title:
+  group:
     description: "optionally specifies the group name when nesting within an expandable group"
     required: false
     default:
@@ -43,7 +43,7 @@ runs:
       # Perform the operation
       
       $path       = "${{ inputs.path }}"
-      $groupTitle = "${{ inputs.group-title }}"
+      $groupTitle = "${{ inputs.group }}"
       
       Write-ActionOutputFile $path $groupTitle
       
