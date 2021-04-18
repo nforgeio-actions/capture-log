@@ -45,7 +45,7 @@ runs:
       $path  = "${{ inputs.path }}"
       $group = "${{ inputs.group }}"
       
-      if ([System.String]::IsNullOrEmpty(&group))
+      if ([System.String]::IsNullOrEmpty($group))
       {
           $group = "LOG-CAPTURE"
       }
