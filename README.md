@@ -4,7 +4,7 @@
 
 Copies a text file to the GitHub action output, optionally nesting it within an expandable group and highlighting errors and warnings.
 
-**NOTE:** This action does nothing when the source file doesn't exist.  This makes the action suitable for executing when previous steps have failed without having to do complex checks to avoid capturing non-existant log files.
+**NOTE:** This action does nothing when the source file doesn't exist.  This makes the action suitable for executing when previous steps have failed without having to do complex checks to avoid capturing non-existent log files.
 
 ## Examples:
 
