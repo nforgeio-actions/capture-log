@@ -42,8 +42,13 @@ runs:
       
       # Perform the operation
       
-      $path       = "${{ inputs.path }}"
-      $groupTitle = "${{ inputs.group }}"
+      $path  = "${{ inputs.path }}"
+      $group = "${{ inputs.group }}"
       
-      Write-ActionOutputFile $path $groupTitle
+      if ([System.String]::IsNullOrEmpty(&group))
+      {
+          $group = "LOG-CAPTURE"
+      }
+      
+      Write-ActionOutputFile $path $group
       
