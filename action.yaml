@@ -2,7 +2,7 @@
 # Appends a text file to the GitHub action log, optionally nesting the text
 # within an expandable group.
 
-name: neon-log-file
+name: capture-log
 description: "Appends a text file to the GitHub action log, optionally nesting the text within an expandable group"
 inputs:
   path:
