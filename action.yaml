@@ -20,8 +20,8 @@ inputs:
   group:
     description: "Optionally specifies the group name when nesting within an expandable group"
     required: false
-  color-mode: 
-    description: "Optionally specifies the log colorization mode (one of: '', 'none', or 'build-log)"
+  type: 
+    description: "Optionally specifies the log file type for colorization (one of: '', 'none', or 'build-log)"
     required: false
     default: none
 runs:
