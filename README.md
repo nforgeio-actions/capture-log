@@ -15,7 +15,7 @@ with:
   path: ${{ github.workspace }}/build.log
 ```
 
-**Append a file to the action log nesting it within an expandable group:**
+**Append a file to the action log, nesting it within an expandable group:**
 ```
 uses: nforgeio-actions/capture-log@master
 with:
@@ -23,3 +23,11 @@ with:
   group: build.log
 ```
 
+**Append a build log to the action log, parsing and coloring it as well as nesting it within an expandable group:**
+```
+uses: nforgeio-actions/capture-log@master
+with:
+  path: ${{ github.workspace }}/build.log
+  type: build-log
+  group: build.log
+```

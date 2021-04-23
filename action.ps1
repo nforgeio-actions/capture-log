@@ -18,7 +18,7 @@
       
 $ncRoot = $env:NC_ROOT
       
-if (![System.IO.Directory]::Exists($ncRoot))
+if ([System.String]::IsNullOrEmpty($ncRoot) -or ![System.IO.Directory]::Exists($ncRoot))
 {
     throw "Runner Config: neonCLOUD repo is not present."
 }
@@ -31,13 +31,13 @@ Pop-Location
       
 # Process the log file.
       
-$path      = "${{ inputs.path }}"
-$group     = "${{ inputs.group }}"
-$colorMode = "${{ inputs.color-mode }}"
+$path  = Get-ActionInput "path"
+$type  = Get-ActionInput "type"
+$group = Get-ActionInput "group"
       
 if ([System.String]::IsNullOrEmpty($group))
 {
     $group = "LOG-CAPTURE"
 }
       
-Write-ActionOutputFile $path $group $colorMode
+Write-ActionOutputFile $path $group $type
