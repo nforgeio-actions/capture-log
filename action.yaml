@@ -24,6 +24,10 @@ inputs:
     description: "Optionally specifies the log file type for colorization (one of: '', 'none', or 'build-log)"
     required: false
     default: none
+  success:
+    description: "Optionally indicates whether the action should fail after collecting the log"
+    required: false
+    default: "true"
 runs:
   using: node12
   main: action.js

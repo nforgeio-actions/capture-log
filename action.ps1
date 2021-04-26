@@ -31,9 +31,10 @@ Pop-Location
       
 # Process the log file.
       
-$path  = Get-ActionInput "path"
-$type  = Get-ActionInput "type"
-$group = Get-ActionInput "group"
+$path    = Get-ActionInput "path"
+$type    = Get-ActionInput "type"
+$group   = Get-ActionInput "group"
+$success = $(Get-ActionInput "success") -eq "true"
       
 if ([System.String]::IsNullOrEmpty($group))
 {
@@ -41,3 +42,8 @@ if ([System.String]::IsNullOrEmpty($group))
 }
       
 Write-ActionOutputFile $path $group $type
+
+if (!success)
+{
+    exit 1
+}
