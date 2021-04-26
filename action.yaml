@@ -25,7 +25,11 @@ inputs:
     required: false
     default: none
   success:
-    description: "Optionally indicates whether the action should fail after collecting the log"
+    description: "Optionally indicates whether the step that created the log failed"
+    required: false
+    default: "true"
+  fail-on-error:
+    description: "Optionally indicates whether the action should fail after collecting the log when [success] is false"
     required: false
     default: "true"
 runs:
