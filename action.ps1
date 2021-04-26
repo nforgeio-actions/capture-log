@@ -46,5 +46,6 @@ Write-ActionOutputFile $path $group $type
 
 if (!$success -and $failOnError)
 {
+    Write-ActionError "Expand the log above to see why a previous step failed."
     exit 1
 }
