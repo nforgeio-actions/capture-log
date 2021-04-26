@@ -25,13 +25,17 @@ inputs:
     required: false
     default: none
   success:
-    description: "Optionally indicates whether the step that created the log failed"
+    description: "Optionally specifies whether the step that created the log failed"
     required: false
     default: "true"
   fail-on-error:
-    description: "Optionally indicates whether the action should fail after collecting the log when [success] is false"
+    description: "Optionally specifies whether the action should fail after collecting the log when [success] is false"
     required: false
     default: "true"
+  keep-shfb-warnings:
+    description: "Optionally specifies whether Sandcastle Help File Builder (SHFB) warnings should be retained in the captured outout"
+    required: false
+    default: "false"
 runs:
   using: node12
   main: action.js

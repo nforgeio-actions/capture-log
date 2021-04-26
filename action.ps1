@@ -31,18 +31,19 @@ Pop-Location
       
 # Process the log file.
       
-$path        = Get-ActionInput "path"
-$type        = Get-ActionInput "type"
-$group       = Get-ActionInput "group"
-$success     = $(Get-ActionInput "success") -eq "true"
-$failOnError = $(Get-ActionInput "fail-on-error") -eq "true"
+$path             = Get-ActionInput "path"
+$type             = Get-ActionInput "type"
+$group            = Get-ActionInput "group"
+$success          = $(Get-ActionInput "success") -eq "true"
+$failOnError      = $(Get-ActionInput "fail-on-error") -eq "true"
+$keepShfbWarnings = $(Get-ActionInput "keep-shfb-warnings") -eq "true"
       
 if ([System.String]::IsNullOrEmpty($group))
 {
     $group = "LOG-CAPTURE"
 }
       
-Write-ActionOutputFile $path $group $type
+Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
 
 if (!$success -and $failOnError)
 {
