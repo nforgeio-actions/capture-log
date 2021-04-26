@@ -43,7 +43,7 @@ if ([System.String]::IsNullOrEmpty($group))
       
 Write-ActionOutputFile $path $group $type
 
-if (!success)
+if (!$success)
 {
     exit 1
 }
