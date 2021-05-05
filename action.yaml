@@ -15,7 +15,7 @@ name: capture-log
 description: "Appends a text file to the GitHub action log, optionally nesting the text within an expandable group"
 inputs:
   path:
-    description: "The text file path"
+    description: "The log file path"
     required: true
   group:
     description: "Optionally specifies the group name when nesting within an expandable group"
