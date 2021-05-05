@@ -28,25 +28,32 @@ $ncPowershell = [System.IO.Path]::Combine($ncRoot, "Powershell")
 Push-Location $ncPowershell
 . ./includes.ps1
 Pop-Location
-      
-# Process the log file.
-      
-$path             = Get-ActionInput "path"
-$type             = Get-ActionInput "type"
-$group            = Get-ActionInput "group"
-$success          = $(Get-ActionInput "success") -eq "true"
-$failOnError      = $(Get-ActionInput "fail-on-error") -eq "true"
-$keepShfbWarnings = $(Get-ActionInput "keep-shfb-warnings") -eq "true"
-      
-if ([System.String]::IsNullOrEmpty($group))
-{
-    $group = "LOG-CAPTURE"
-}
-      
-Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
 
-if (!$success -and $failOnError)
+try
+{   
+    # Process the log file.
+      
+    $path             = Get-ActionInput "path"
+    $type             = Get-ActionInput "type"
+    $group            = Get-ActionInput "group"
+    $success          = $(Get-ActionInput "success") -eq "true"
+    $failOnError      = $(Get-ActionInput "fail-on-error") -eq "true"
+    $keepShfbWarnings = $(Get-ActionInput "keep-shfb-warnings") -eq "true"
+      
+    if ([System.String]::IsNullOrEmpty($group))
+    {
+        $group = "LOG-CAPTURE"
+    }
+      
+    Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
+
+    if (!$success -and $failOnError)
+    {
+        Write-ActionError "Expand the log above to see why a previous step failed."
+        exit 1
+    }
+}
+catch
 {
-    Write-ActionError "Expand the log above to see why a previous step failed."
-    exit 1
+    Write-ActionException $_
 }
