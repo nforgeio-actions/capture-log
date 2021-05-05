@@ -31,7 +31,7 @@ inputs:
   fail-on-error:
     description: "Optionally specifies whether the action should fail after collecting the log when [success] is false"
     required: false
-    default: "true"
+    default: "false"
   keep-shfb-warnings:
     description: "Optionally specifies whether Sandcastle Help File Builder (SHFB) warnings should be retained in the captured outout"
     required: false

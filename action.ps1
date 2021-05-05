@@ -29,6 +29,7 @@ Push-Location $ncPowershell
 . ./includes.ps1
 Pop-Location
 
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "************************************")
 try
 {   
     # Process the log file.
@@ -39,21 +40,28 @@ try
     $success          = $(Get-ActionInput "success") -eq "true"
     $failOnError      = $(Get-ActionInput "fail-on-error") -eq "true"
     $keepShfbWarnings = $(Get-ActionInput "keep-shfb-warnings") -eq "true"
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "*** 0")
       
     if ([System.String]::IsNullOrEmpty($group))
     {
         $group = "LOG-CAPTURE"
     }
-      
+
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "*** 0")
     Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "*** 0")
 
     if (!$success -and $failOnError)
     {
         Write-ActionError "Expand the log above to see why a previous step failed."
         exit 1
     }
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "*** 0")
 }
 catch
 {
     Write-ActionException $_
+    exit 1
 }
+
+[System.IO.File]::AppendAllText("C:\Temp\log.txt", "************************************")
