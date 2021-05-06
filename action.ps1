@@ -45,7 +45,14 @@ try
         $group = "LOG-CAPTURE"
     }
 
-    Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
+    if ([System.String]::IsNullOrEmpty($path))
+    {
+        Write-ActionWarning("*** No build log was path was passed.")
+    }
+    else
+    {
+        Write-ActionOutputFile $path $group $type -keepShfbWarnings $keepShfbWarnings
+    }
 
     if (!$success -and $failOnError)
     {
