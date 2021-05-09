@@ -37,9 +37,9 @@ try
     $path             = Get-ActionInput "path"
     $type             = Get-ActionInput "type"
     $group            = Get-ActionInput "group"
-    $success          = $(Get-ActionInput "success") -eq "true"
-    $failOnError      = $(Get-ActionInput "fail-on-error") -eq "true"
-    $keepShfbWarnings = $(Get-ActionInput "keep-shfb-warnings") -eq "true"
+    $success          = Get-ActionInputBool "success"
+    $failOnError      = Get-ActionInputBool "fail-on-error"
+    $keepShfbWarnings = Get-ActionInputBool "keep-shfb-warnings"
       
     if ([System.String]::IsNullOrEmpty($group))
     {
