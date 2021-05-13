@@ -34,9 +34,9 @@ try
 {   
     # Process the log file.
       
-    $path             = Get-ActionInput "path"
-    $type             = Get-ActionInput "type"
-    $group            = Get-ActionInput "group"
+    $path             = Get-ActionInput     "path"
+    $type             = Get-ActionInput     "type"
+    $group            = Get-ActionInput     "group"
     $success          = Get-ActionInputBool "success"
     $failOnError      = Get-ActionInputBool "fail-on-error"
     $keepShfbWarnings = Get-ActionInputBool "keep-shfb-warnings"
@@ -57,7 +57,7 @@ try
 
     if (!$success -and $failOnError)
     {
-        Write-ActionError "Expand the log above to see why a previous step failed."
+        Write-ActionError "Expand a previous step failed."
         exit 1
     }
 }
