@@ -57,7 +57,7 @@ try
 
     if (!$success -and $failOnError)
     {
-        Write-ActionError "Expand a previous step failed."
+        Write-ActionError "A previous step failed.";
         exit 1
     }
 }
