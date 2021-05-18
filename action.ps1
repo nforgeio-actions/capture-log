@@ -40,6 +40,7 @@ try
     $success          = Get-ActionInputBool "success"
     $failOnError      = Get-ActionInputBool "fail-on-error"
     $keepShfbWarnings = Get-ActionInputBool "keep-shfb-warnings"
+    $message          = Get-ActionInput     "A previous step failed"
       
     if ([System.String]::IsNullOrEmpty($group))
     {
@@ -57,7 +58,7 @@ try
 
     if (!$success -and $failOnError)
     {
-        Write-ActionError "A previous step failed.";
+        Write-ActionError $message
         exit 1
     }
 }

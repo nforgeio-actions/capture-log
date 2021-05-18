@@ -36,6 +36,10 @@ inputs:
     description: "Optionally specifies whether Sandcastle Help File Builder (SHFB) warnings should be retained in the captured outout"
     required: false
     default: "false"
+  message:
+    description: "Optionally specifies a custom message when the step fails on an error"
+    required: false
+    default: "A previous step failed"
 runs:
   using: node12
   main: action.js
