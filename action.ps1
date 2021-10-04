@@ -49,7 +49,7 @@ try
 
     if ([System.String]::IsNullOrEmpty($path))
     {
-        Write-ActionWarning("*** No build log was path was passed.")
+        Write-ActionWarning("*** No build log path was passed.")
     }
     else
     {
